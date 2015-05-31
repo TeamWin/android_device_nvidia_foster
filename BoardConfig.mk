@@ -99,3 +99,17 @@ BOARD_SUPPRESS_EMMC_WIPE := true
 TARGET_UNIFIED_DEVICE := true
 TARGET_INIT_VENDOR_LIB := libinit_foster
 TARGET_LIBINIT_DEFINES_FILE := device/nvidia/foster/init/init_foster.cpp
+
+# TWRP
+TW_THEME := landscape_hdpi
+#RECOVERY_GRAPHICS_USE_LINELENGTH := true
+BOARD_HAS_NO_REAL_SDCARD := true
+RECOVERY_SDCARD_ON_DATA := true
+
+# MultiROM
+MR_INIT_DEVICES := device/nvidia/foster/multirom/mr_init_devices.c
+MR_DPI := xhdpi
+MR_DPI_FONT := 323
+MR_FSTAB := device/nvidia/foster/multirom/twrp.fstab
+MR_KEXEC_MEM_MIN := 0x85000000
+MR_KEXEC_DTB := true

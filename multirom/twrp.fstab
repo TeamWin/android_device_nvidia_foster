@@ -1,0 +1,20 @@
+/recovery       emmc            /dev/block/platform/sdhci-tegra.3/by-name/SOS
+/recovery       emmc            /dev/block/platform/tegra-sata.0/by-name/SOS
+/boot           emmc            /dev/block/platform/sdhci-tegra.3/by-name/LNX
+/boot           emmc            /dev/block/platform/tegra-sata.0/by-name/LNX
+/system         ext4            /dev/block/platform/sdhci-tegra.3/by-name/APP
+/system         ext4            /dev/block/platform/tegra-sata.0/by-name/APP
+/cache          ext4            /dev/block/platform/sdhci-tegra.3/by-name/CAC
+/cache          ext4            /dev/block/platform/tegra-sata.0/by-name/CAC
+/misc           emmc            /dev/block/platform/sdhci-tegra.3/by-name/MSC
+/misc           emmc            /dev/block/platform/tegra-sata.0/by-name/MSC
+/staging        emmc            /dev/block/platform/sdhci-tegra.3/by-name/USP
+/staging        emmc            /dev/block/platform/tegra-sata.0/by-name/USP
+/metadata       emmc            /dev/block/platform/sdhci-tegra.3/by-name/MDA
+/metadata       emmc            /dev/block/platform/tegra-sata.0/by-name/MDA
+/data           ext4            /dev/block/platform/sdhci-tegra.3/by-name/UDA
+/data           ext4            /dev/block/platform/tegra-sata.0/by-name/UDA
+/bmps           emmc            /dev/block/platform/sdhci-tegra.3/by-name/IMG
+/bmps           emmc            /dev/block/platform/tegra-sata.0/by-name/BMP
+/external_sd    vfat            /dev/block/platform/sdhci-tegra.0/by-num/p1			 flags=display="Micro SDcard";storage;wipeingui;removable
+/usb-otg        vfat            /dev/block/sda1	  /dev/block/sda	                         flags=removable;storage;display=USB-OTG
