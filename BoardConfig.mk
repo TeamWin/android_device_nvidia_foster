@@ -105,6 +105,8 @@ TW_THEME := landscape_hdpi
 #RECOVERY_GRAPHICS_USE_LINELENGTH := true
 BOARD_HAS_NO_REAL_SDCARD := true
 RECOVERY_SDCARD_ON_DATA := true
+TW_NO_SCREEN_TIMEOUT := true
+TW_NO_SCREEN_BLANK := true
 
 # MultiROM
 MR_INIT_DEVICES := device/nvidia/foster/multirom/mr_init_devices.c

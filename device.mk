@@ -89,4 +89,10 @@ PRODUCT_PACKAGES += LeanbackIme
 # TvSettings for android tv
 #PRODUCT_PACKAGES += TvSettings
 
+# Needed in recovery
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/multirom/twrp.fstab.emmc:recovery/root/etc/twrp.fstab.emmc \
+    $(LOCAL_PATH)/multirom/twrp.fstab.sata:recovery/root/etc/twrp.fstab.sata \
+    vendor/nvidia/foster/proprietary/etc/firmware/tegra21x_xusb_firmware:recovery/root/etc/firmware/tegra21x_xusb_firmware
+
 $(call inherit-product, device/nvidia/shield-common/shield.mk)

@@ -47,11 +47,13 @@ void vendor_load_properties()
     property_get("ro.hardware", model);
     if (!strcmp(model, "foster_e")) { // check cpuinfo hardware identifier
         /* EMMC Model */
+	symlink("/etc/twrp.fstab.emmc", "/etc/twrp.fstab");
         property_set("ro.build.fingerprint", "nvidia/foster_e/t210:6.0/MRA58K/41937_667.2671:user/release-keys");
         property_set("ro.build.description", "foster_e-user 6.0 MRA58K 41937_667.2671 release-keys");
         property_set("ro.product.model", "foster_e");
     } else {
         /* SATA Model */
+	symlink("/etc/twrp.fstab.sata", "/etc/twrp.fstab");
         property_set("ro.build.fingerprint", "nvidia/foster_e_hdd/t210:6.0/MRA58K/41937_667.2671:user/release-keys");
         property_set("ro.build.description", "foster_e_hdd-user 6.0 MRA58K 41937_667.2671 release-keys");
         property_set("ro.product.model", "foster_e_hdd");
