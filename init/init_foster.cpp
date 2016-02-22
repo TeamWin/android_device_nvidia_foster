@@ -39,8 +39,8 @@ void vendor_load_properties()
     char platform[PROP_VALUE_MAX];
     char model[PROP_VALUE_MAX];
     char int_path[14] = { '\0' };
-    char dev_path[46] = { '\0' };
-    char ln_path[14] = { '\0' };
+    char dev_path[49] = { '\0' };
+    char ln_path[17] = { '\0' };
     char devs[][7] = { "APP", "CAC", "LNX", "MSC", "UDA", "USP", "MDA", "SOS", "BMP", "vendor", "" };
     int i = 0;
     int rc;
