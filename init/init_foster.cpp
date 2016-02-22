@@ -41,7 +41,7 @@ void vendor_load_properties()
     char int_path[14] = { '\0' };
     char dev_path[46] = { '\0' };
     char ln_path[14] = { '\0' };
-    char devs[][4] = { "APP", "CAC", "LNX", "MSC", "UDA", "USP", "MDA", "SOS", "BMP", "vendor", "" };
+    char devs[][7] = { "APP", "CAC", "LNX", "MSC", "UDA", "USP", "MDA", "SOS", "BMP", "vendor", "" };
     int i = 0;
     int rc;
 
