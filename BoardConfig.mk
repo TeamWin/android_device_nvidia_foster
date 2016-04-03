@@ -107,9 +107,12 @@ TW_NO_SCREEN_TIMEOUT := true
 TW_NO_SCREEN_BLANK := true
 
 # MultiROM
+TARGET_RECOVERY_IS_MULTIROM := true
 MR_INIT_DEVICES := device/nvidia/foster/multirom/mr_init_devices.c
 MR_DPI := xhdpi
 MR_DPI_FONT := 323
 MR_FSTAB := device/nvidia/foster/multirom/twrp.fstab.sata
 MR_KEXEC_MEM_MIN := 0x85000000
 MR_KEXEC_DTB := true
+MR_DEVICE_HOOKS := device/nvidia/foster/multirom/mr_hooks.c
+MR_DEVICE_HOOKS_VER := 3
