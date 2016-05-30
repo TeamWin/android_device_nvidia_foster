@@ -91,8 +91,8 @@ PRODUCT_PACKAGES += LeanbackIme
 
 # Needed in recovery
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/multirom/twrp.fstab.emmc:recovery/root/etc/twrp.fstab.emmc \
-    $(LOCAL_PATH)/multirom/twrp.fstab.sata:recovery/root/etc/twrp.fstab.sata \
-    vendor/nvidia/foster/proprietary/etc/firmware/tegra21x_xusb_firmware:recovery/root/etc/firmware/tegra21x_xusb_firmware
+    $(LOCAL_PATH)/twrp/twrp.fstab.emmc:recovery/root/etc/twrp.fstab.emmc \
+    $(LOCAL_PATH)/twrp/twrp.fstab.sata:recovery/root/etc/twrp.fstab.sata \
+    $(LOCAL_PATH)/twrp/tegra21x_xusb_firmware:recovery/root/etc/firmware/tegra21x_xusb_firmware
 
 $(call inherit-product, device/nvidia/shield-common/shield.mk)

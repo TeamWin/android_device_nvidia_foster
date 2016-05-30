@@ -100,22 +100,8 @@ TARGET_LIBINIT_DEFINES_FILE := device/nvidia/foster/init/init_foster.cpp
 
 # TWRP
 TW_THEME := landscape_hdpi
-#RECOVERY_GRAPHICS_USE_LINELENGTH := true
 BOARD_HAS_NO_REAL_SDCARD := true
 RECOVERY_SDCARD_ON_DATA := true
 TW_NO_SCREEN_TIMEOUT := true
 TW_NO_SCREEN_BLANK := true
 TW_INCLUDE_CRYPTO := true
-
-# MultiROM
-TARGET_RECOVERY_IS_MULTIROM := true
-MR_INIT_DEVICES := device/nvidia/foster/multirom/mr_init_devices.c
-MR_DPI := xhdpi
-MR_DPI_FONT := 323
-MR_FSTAB := device/nvidia/foster/multirom/twrp.fstab.sata
-MR_KEXEC_MEM_MIN := 0x80000000
-MR_DEVICE_HOOKS := device/nvidia/foster/multirom/mr_hooks.c
-MR_DEVICE_HOOKS_VER := 5
-MR_PAD_UP := 308
-MR_PAD_DOWN := 305
-MR_PAD_CONFIRM := 304
