@@ -32,12 +32,18 @@
 #include "log.h"
 #include "util.h"
 #include <stdio.h>
+#include <unistd.h>
 #include <string.h>
 
 void vendor_load_properties()
 {
     std::string platform = "";
     std::string model = "";
+    char int_path[14] = { '\0' };
+    char dev_path[49] = { '\0' };
+    char ln_path[18] = { '\0' };
+    char devs[][7] = { "APP", "CAC", "LNX", "MSC", "UDA", "USP", "MDA", "SOS", "BMP", "vendor", "" };
+    int i = 0;
 
     platform = property_get("ro.board.platform");
     if (strncmp(platform.c_str(), ANDROID_TARGET, PROP_VALUE_MAX))
@@ -50,24 +56,43 @@ void vendor_load_properties()
         property_set("ro.build.description", "foster_e_hdd-user 7.0 NRD90M 1915764_910.7870 release-keys");
         property_set("ro.product.name", "foster_e_hdd");
         property_set("ro.product.device", "foster");
+        symlink("/etc/twrp.fstab.sata", "/etc/twrp.fstab");
+        strcpy(int_path, "tegra-sata.0");
     } else if (!model.compare("darcy")) {
         /* New EMMC Model */
         property_set("ro.build.fingerprint", "NVIDIA/darcy/darcy:7.0/NRD90M/1915764_910.7870:user/release-keys");
         property_set("ro.build.description", "darcy-user 7.0 NRD90M 1915764_910.7870 release-keys");
         property_set("ro.product.name", "darcy");
         property_set("ro.product.device", "darcy");
+        symlink("/etc/twrp.fstab.emmc", "/etc/twrp.fstab");
+        strcpy(int_path, "sdhci-tegra.3");
     } else if (!model.compare("jetson_cv")) {
         /* Jetson TX1 */
         property_set("ro.build.fingerprint", "NVIDIA/jetson_cv/jetson_cv:7.0/NRD90M/1915764_910.7870:user/release-keys");
         property_set("ro.build.description", "jetson_cv-user 7.0 NRD90M 1915764_910.7870 release-keys");
         property_set("ro.product.name", "jetson_cv");
         property_set("ro.product.device", "foster");
+        symlink("/etc/twrp.fstab.emmc", "/etc/twrp.fstab");
+        strcpy(int_path, "sdhci-tegra.3");
     } else {
         /* Old EMMC Model and catch-all for unknown models */
         property_set("ro.build.fingerprint", "NVIDIA/foster_e/foster:7.0/NRD90M/1915764_910.7870:user/release-keys");
         property_set("ro.build.description", "foster_e-user 7.0 NRD90M 1915764_910.7870 release-keys");
         property_set("ro.product.name", "foster_e");
         property_set("ro.product.device", "foster");
+        symlink("/etc/twrp.fstab.emmc", "/etc/twrp.fstab");
+        strcpy(int_path, "sdhci-tegra.3");
+    }
+
+    // Symlink paths for unified ROM installs.
+    for (i = 0; devs[i][0]; i++) {
+        strcpy(dev_path, "/dev/block/platform/");
+        strcat(dev_path, int_path);
+        strcat(dev_path, "/by-name/");
+        strcat(dev_path, devs[i]);
+        strcpy(ln_path, "/dev/block/");
+        strcat(ln_path, devs[i]);
+        symlink(dev_path, ln_path);
     }
 
     property_set("ro.build.product", "foster");

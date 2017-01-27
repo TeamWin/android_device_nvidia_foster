@@ -25,7 +25,7 @@ TARGET_SCREEN_WIDTH := 1080
 $(call inherit-product, frameworks/native/build/phone-xxhdpi-3072-dalvik-heap.mk)
 $(call inherit-product, frameworks/native/build/phone-xxhdpi-3072-hwui-memory.mk)
 
-$(call inherit-product, vendor/nvidia/shield/foster.mk)
+$(call inherit-product-if-exists, vendor/nvidia/shield/foster.mk)
 
 PRODUCT_SYSTEM_PROPERTY_BLACKLIST := ro.product.name
 
@@ -45,6 +45,10 @@ PRODUCT_PACKAGES += \
     init.foster_e_common.rc \
     init.loki_foster_e_common.rc \
     init.jetson_cv.rc \
+    init.recovery.darcy.rc \
+    init.recovery.foster_e.rc \
+    init.recovery.foster_e_hdd.rc \
+    init.recovery.jetson_cv.rc \
     power.darcy.rc \
     power.foster_e.rc \
     power.foster_e_hdd.rc \
@@ -89,5 +93,11 @@ PRODUCT_COPY_FILES += \
 # Leanback
 PRODUCT_PACKAGES += LeanbackIme \
                     LeanbackLauncher
+
+# Needed in recovery
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/twrp/twrp.fstab.emmc:recovery/root/etc/twrp.fstab.emmc \
+    $(LOCAL_PATH)/twrp/twrp.fstab.sata:recovery/root/etc/twrp.fstab.sata \
+    $(LOCAL_PATH)/twrp/tegra21x_xusb_firmware:recovery/root/etc/firmware/tegra21x_xusb_firmware
 
 $(call inherit-product, device/nvidia/shield-common/shield.mk)
