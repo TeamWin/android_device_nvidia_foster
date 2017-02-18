@@ -56,21 +56,24 @@ void vendor_load_properties()
 	strcpy(int_path, "tegra-sata.0");
         property_set("ro.build.fingerprint", "nvidia/foster_e_hdd/t210:6.0/MRA58K/41937_667.2671:user/release-keys");
         property_set("ro.build.description", "foster_e_hdd-user 6.0 MRA58K 41937_667.2671 release-keys");
-        property_set("ro.product.model", "foster_e_hdd");
+        property_set("ro.product.name", "foster_e_hdd");
+        property_set("ro.product.device", "foster");
     } else if (!strcmp(model, "darcy")) {
         /* New EMMC Model */
 	symlink("/etc/twrp.fstab.emmc", "/etc/twrp.fstab");
 	strcpy(int_path, "sdhci-tegra.3");
         property_set("ro.build.fingerprint", "nvidia/darcy/t210:6.0/MRA58K/41937_667.2671:user/release-keys");
         property_set("ro.build.description", "darcy-user 6.0 MRA58K 41937_667.2671 release-keys");
-        property_set("ro.product.model", "darcy");
+        property_set("ro.product.name", "darcy");
+        property_set("ro.product.device", "darcy");
     } else {
         /* Old EMMC Model */
 	symlink("/etc/twrp.fstab.emmc", "/etc/twrp.fstab");
 	strcpy(int_path, "sdhci-tegra.3");
         property_set("ro.build.fingerprint", "nvidia/foster_e/t210:6.0/MRA58K/41937_667.2671:user/release-keys");
         property_set("ro.build.description", "foster_e-user 6.0 MRA58K 41937_667.2671 release-keys");
-        property_set("ro.product.model", "foster_e");
+        property_set("ro.product.name", "foster_e");
+        property_set("ro.product.device", "foster");
     }
 
     // Symlink paths for unified ROM installs.
@@ -85,6 +88,6 @@ void vendor_load_properties()
     }
 
     property_set("ro.build.product", "foster");
-    property_set("ro.product.device", "foster");
+    property_set("ro.product.model", "SHIELD Android TV");
     ERROR("Setting build properties for %s model\n", model);
 }
