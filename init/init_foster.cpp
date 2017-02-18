@@ -57,8 +57,15 @@ void vendor_load_properties()
         property_set("ro.build.fingerprint", "nvidia/foster_e_hdd/t210:6.0/MRA58K/41937_667.2671:user/release-keys");
         property_set("ro.build.description", "foster_e_hdd-user 6.0 MRA58K 41937_667.2671 release-keys");
         property_set("ro.product.model", "foster_e_hdd");
+    } else if (!strcmp(model, "darcy")) {
+        /* New EMMC Model */
+	symlink("/etc/twrp.fstab.emmc", "/etc/twrp.fstab");
+	strcpy(int_path, "sdhci-tegra.3");
+        property_set("ro.build.fingerprint", "nvidia/darcy/t210:6.0/MRA58K/41937_667.2671:user/release-keys");
+        property_set("ro.build.description", "darcy-user 6.0 MRA58K 41937_667.2671 release-keys");
+        property_set("ro.product.model", "darcy");
     } else {
-        /* EMMC Model */
+        /* Old EMMC Model */
 	symlink("/etc/twrp.fstab.emmc", "/etc/twrp.fstab");
 	strcpy(int_path, "sdhci-tegra.3");
         property_set("ro.build.fingerprint", "nvidia/foster_e/t210:6.0/MRA58K/41937_667.2671:user/release-keys");
