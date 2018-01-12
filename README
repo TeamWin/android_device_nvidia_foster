@@ -1,5 +1,3 @@
-Copyright 2014 - The CyanogenMod Project
+This device tree is deprecated. New sources available at:
 
-Common device configuration for Nvidia Shield TV
-
-WORK IN PROGRESS. WILL EAT YOUR CAT.
+https://github.com/LineageOS/android_device_nvidia_foster
